@@ -46,8 +46,6 @@ export class Header extends Component {
             headerShow: false
           })
         }
-    
-        console.log(window.scrollY)
     }
 
   render() {
