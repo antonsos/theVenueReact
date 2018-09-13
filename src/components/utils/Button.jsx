@@ -10,7 +10,7 @@ const MyButton = ({bgc, color, text, link}) => {
   return (
     <Button
         href={link}
-        variant="contined"
+        contined="contined"
         size="small"
         style={{
             backgroundColor: bgc,

@@ -4,56 +4,70 @@ import React from 'react';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import { withStyles } from '@material-ui/core/styles';
 
-const styles = {
-    drawer: {
-        bacground: '#2f2f2f'
-    }
-};
+//react-scroll
+import { scroller } from 'react-scroll';
 
 const SideDrawer = ({open, onClose}) => {
+
+    const scrollToElement = (element) => {
+        scroller.scrollTo(
+            element,
+            {
+                diration: 1000,
+                delay: 500,
+                smooth: true,
+                offset: -80,
+            },
+        );
+        onClose()
+    }
+    
   return (
     <Drawer
         open={open}
-        onClose={onClose(false)}
+        onClose={onClose}
         anchor="right"
     >
         <List
             component="nav"
-            style={styles.drawer}
+            style={{
+                color: '#fff',
+                backgroundColor: '#2f2f2f',
+                height: '100%'
+            }}
         >
             <ListItem
                 button
-                onClick={() => console.log('Featured')}
+                onClick={() => scrollToElement('Featured',)}
             >
                 Featured
             </ListItem>
 
             <ListItem
                 button
-                onClick={() => console.log('Venue NFO')}
+                onClick={() => scrollToElement('VenueNfo')}
             >
                 Venue NFO
             </ListItem>
 
             <ListItem
                 button
-                onClick={() => console.log('Highlight')}
+                onClick={() => scrollToElement('Highlights')}
             >
                 Highlight
             </ListItem>
 
             <ListItem
                 button
-                onClick={() => console.log('Pricing')}
+                onClick={() => scrollToElement('Pricing')}
             >
                 Pricing
             </ListItem>
 
             <ListItem
                 button
-                onClick={() => console.log('Location')}
+                onClick={() => scrollToElement('Location')}
             >
                 Location
             </ListItem>
@@ -62,4 +76,4 @@ const SideDrawer = ({open, onClose}) => {
   )
 };
 
-export default withStyles(styles)(SideDrawer);
+export default SideDrawer;

@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 
+//react-scroll
+import { Element } from 'react-scroll';
+
 //resurse css file
 import './resources/styles.css';
 
@@ -22,11 +25,27 @@ class App extends Component {
     return (
       <div>
         <Header />
-        <Featured />
-        <VenueNfo />
-        <Highlights />
-        <Pricing />
-        <Location />
+
+        <Element name="Featured">
+          <Featured />
+        </Element>
+
+        <Element name="VenueNfo">
+          <VenueNfo />
+        </Element>
+
+        <Element name="Highlights">
+          <Highlights />
+        </Element>
+
+        <Element name="Pricing">
+          <Pricing />
+        </Element>
+
+        <Element name="Location">
+          <Location />
+        </Element>
+        
         <Footer />
       </div>
     );
